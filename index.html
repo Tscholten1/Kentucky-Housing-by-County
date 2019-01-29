@@ -173,11 +173,15 @@
     <div id='map'></div>
 
     <section>
-        <h2>about this map</h2>
+        <!--        <h2>about this map</h2>-->
 
         <p>Map created by Tom Scholten, MAP 673 Fall, 2017</p>
 
-        <p>Additional information about <a href="#">the data</a> and map goes here. Additional information to come at a later date.
+        <p>This map allows the user to select a new data attribute, which will trigger the map and update the legend using this data attribute. The map will also provide the user with an information panel that, upon mousing over the counties, will provide the user with the raw data (i.e., non-normalized data values) associated with each county. 
+        <li>Build a map allowing the user to explore data related to vacant housing units, as opposed to the occupied ones.</li> 
+        <li>Provide a visual affordance for when the user mouses over individual counties, beyond the appearance of the info panel and the tooltip popup.</li>
+        <li>Changing the color of the county's stroke (i.e., from gray to yellow) allows the user to still see the color symbolizing a normalized data value</li>
+        <li>Computer languages used: HTML, CSS, and JavaScript</li>
         </p>
 
     </section>
@@ -219,7 +223,7 @@
         // AJAX call to load county-level data
         $.getJSON("data/ky_counties_housing.json", function(data) {
 
-  
+
             drawMap(data);
             drawInfo(data);
 
@@ -228,10 +232,10 @@
 
         //begin updateMap function
         function updateMap(dataLayer) {
-        
+
             // get the class breaks for the initial data attribute
             var breaks = getClassBreaks(dataLayer);
-    
+
             // draw the legend now that we have the classifications
             // drawLegend(breaks);
             // loop through each county layer
@@ -251,8 +255,8 @@
                     sticky: true
                 });
             });
-                      // draw the map using GeoJSON data
-       
+            // draw the map using GeoJSON data
+
             updateLegend(breaks);
 
         } // end  updateMap function
